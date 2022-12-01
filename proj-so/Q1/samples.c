@@ -4,9 +4,11 @@
 #include <time.h>
 
 #define MAX_FILE_NAME 100
+#define N_ARGS 4
 
 int _charcount(char *file_name) // conta quantos caracteres tem o ficheiro
 {
+
     FILE *fp;
 
     // Character counter (result)
@@ -14,9 +16,6 @@ int _charcount(char *file_name) // conta quantos caracteres tem o ficheiro
 
     // To store a character read from file
     char c;
-
-
-
 
     // Open the file
     fp = fopen(file_name, "r");
@@ -55,6 +54,13 @@ int _randomchar(char *file) // retorna uma posição qualquer dentro do numero d
 int main(int argc, char **argv)
 {
 
+    if (argc != N_ARGS)
+    {
+        printf("ERROR: few arguments\n");
+    
+        exit(EXIT_FAILURE);
+    }
+
     srand(time(0));
 
     // argv[1] == file_name;
@@ -68,11 +74,8 @@ int main(int argc, char **argv)
     int n; // numero de strings
     int m; // tamanho da string
 
-
     n = atoi(argv[2]);
     m = atoi(argv[3]);
-
-
 
     char aux_char;
 
@@ -97,9 +100,6 @@ int main(int argc, char **argv)
 
         printf("<\n");
     }
-
-
-
 
     return 0;
 }

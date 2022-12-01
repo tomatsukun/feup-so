@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 
 #define MAX_STR_SIZE 64
+#define N_ARGS 3
 
 // system("touch teste.txt");
 
@@ -49,6 +50,16 @@ const char *WorkInChild(char *txt)
 
 int main(int argc, char **argv)
 {
+
+    if (argc >= N_ARGS)
+    {
+        printf("ERROR: few arguments\n");
+        printf("EXAMPLE RIGHT COMPILATION: ./samples quote.txt 5 5\n");
+        exit(EXIT_FAILURE);
+    }
+
+
+
 
     char command[MAX_STR_SIZE];
     strcpy(command, "");
